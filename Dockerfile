@@ -6,8 +6,7 @@ RUN apt-get update &&\
     apt-get -y autoremove &&\
     rm -rf /var/lib/apt/lists/*
 
-RUN npm i -g npm
-RUN npm i -g @angular/cli --unsafe-perm
+RUN npm i -g npm @angular/cli --unsafe-perm
 
 RUN mkdir -p ~/.ssh
 RUN chmod 700 ~/.ssh
