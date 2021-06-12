@@ -1,10 +1,8 @@
-FROM node:12
+FROM node:16-alpine
 
-RUN apt-get update &&\
-    apt-get -y install rsync apt-utils &&\
-    apt-get -y remove apt-utils &&\
-    apt-get -y autoremove &&\
-    rm -rf /var/lib/apt/lists/*
+RUN apk --update add git openssh rsync && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm /var/cache/apk/*
 
 RUN npm i -g npm @angular/cli --unsafe-perm
 
